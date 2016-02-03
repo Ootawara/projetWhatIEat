@@ -1,0 +1,15 @@
+{
+  "name": "template_nodeJS_express",
+  "version": "0.1.0",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "express": "~4.11.0",
+    "mongoose": "^4.3.7"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node app.js"
+  },
+  "author": "Florent Baudon",
+  "description": "Template NodeJS Express"
+}
