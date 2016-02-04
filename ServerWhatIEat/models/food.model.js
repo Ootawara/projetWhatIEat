@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var componentSchema = new Schema({
+var foodSchema = new Schema({
 	name : String,
 	description : String,
 	effects : String,
-	isInWhat : [String]
+	isComposedBy : [String]
 });
 
-mongoose.model('Component', componentSchema);
+mongoose.model('Food', foodSchema);

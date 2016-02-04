@@ -1,22 +1,21 @@
-var Component= require('mongoose').model('Component');
+var Food= require('mongoose').model('Food');
 
 function find(name, callback){
-	Component.find({'name' : name}, function(err, component){
+	Food.find({'name' : name}, function(err, food){
 		if(err){
 			callback(err, null);
 		}else{
-			if(component.length==0)
+			if(food.length==0)
 				callback(err, null);
-			else{
-				callback(err, component);
-			}
+			else
+				callback(err, food);
 		}
 	});
 };
 
-function insert(component, callback){
-	var component = new Component(component);
-	component.save(function(err) {
+function insert(food, callback){
+	var food = new Food(food);
+	food.save(function(err) {
 		if(err){
 			callback(err, "Insert failed");
 		}else{
@@ -25,8 +24,8 @@ function insert(component, callback){
 	});
 };
 
-function update(name, component, callback){
-	Component.findOneAndUpdate({name : name}, component, function(err, component) {
+function update(name, food, callback){
+	Food.findOneAndUpdate({name : name}, food, function(err, food) {
 		if(err){
 			callback(err, "Update ailed")
 		}else{
@@ -35,7 +34,7 @@ function update(name, component, callback){
 	});
 };
 
-module.exports.getComponent = function(req, res){
+module.exports.getFood = function(req, res){
 
 	find(req.params.name, function(err, result){
 		if(!err){
@@ -46,7 +45,7 @@ module.exports.getComponent = function(req, res){
 	});
 };
 
-module.exports.insertComponent = function(req, res){
+module.exports.insertFood = function(req, res){
 	find(req.body.name, function(err, result){
 		if(result){
 			update(req.body.name, req.body, function(err, result){
@@ -68,20 +67,21 @@ module.exports.insertComponent = function(req, res){
 	});
 };
 
-module.exports.addFoods = function(req, res){
+
+module.exports.addComponents = function(req, res){
 	find(req.body.name, function(err, result){
-		Component.findOneAndUpdate({name : req.body.name}, { $push: {"isInWhat": req.body.isInWhat}}, function(err, component) {
-				res.json(component);
+		Food.findOneAndUpdate({name : req.body.name}, { $push: {"isComposedBy": req.body.isComposedBy}}, function(err, food) {
+				res.json(food);
 		});
 	});
 };
 
-module.exports.getAllComponents = function (req, res){
-	Component.find({}, function(err, components){
+module.exports.getAllFoods = function (req, res){
+	Food.find({}, function(err, foods){
 		if(err){
 			res.json(err);
 		}else{
-			res.json(components);
+			res.json(foods);
 		}
 	});
 };
