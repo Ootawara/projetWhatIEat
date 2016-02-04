@@ -70,8 +70,10 @@ module.exports.insertFood = function(req, res){
 
 module.exports.addComponents = function(req, res){
 	find(req.body.name, function(err, result){
-		Food.findOneAndUpdate({name : req.body.name}, { $push: {"isComposedBy": req.body.isComposedBy}}, function(err, food) {
-				res.json(food);
+
+		var list = req.body.isComposedBy.split(",");
+		Food.findOneAndUpdate({name : req.body.name}, {"isComposedBy": list}, function(err, component) {
+				res.json(component);
 		});
 	});
 };
