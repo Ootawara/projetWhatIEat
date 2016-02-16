@@ -18,7 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".forms.CreerChimique" >
+
+        <activity android:name=".MenuRecherche">
+		</activity>
+        <activity android:name=".MenuAccueil">
+		</activity>
+        <activity android:name=".MenuRechercheResultats">
+		</activity>
+        <activity android:name=".CreerChimique" >
+        </activity>
+        <activity android:name=".Creer_food" >
         </activity>
         <!--<activity android:name=".Creer_food" >
         </activity>-->
