@@ -3,6 +3,7 @@ package com.example.florent.whatieat.API;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.florent.whatieat.Model.Food;
 import com.example.florent.whatieat.Model.FoodWS;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
@@ -10,6 +11,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
+import java.util.List;
 
 import retrofit.Call;
 import retrofit.GsonConverterFactory;
@@ -27,7 +29,6 @@ public class APIClient {
     public APIClient(Context ctx) {
         this.ctx = ctx;
 
-        OkHttpClient client = new OkHttpClient();
         Retrofit r = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create()).build();
@@ -41,5 +42,9 @@ public class APIClient {
         f.setDescription(description);
 
         return apiEndPoint.createFood(f);
+    }
+
+    public Call<List<Food>> listFoods(){
+        return apiEndPoint.listFoods();
     }
 }

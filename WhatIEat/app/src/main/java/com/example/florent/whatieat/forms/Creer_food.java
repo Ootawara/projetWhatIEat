@@ -10,12 +10,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.florent.whatieat.API.APIClient;
+import com.example.florent.whatieat.API.APIEndPoint;
 import com.example.florent.whatieat.MainActivity;
+import com.example.florent.whatieat.Model.Food;
 import com.example.florent.whatieat.Model.FoodWS;
 import com.example.florent.whatieat.R;
 
+import java.util.List;
+
 import retrofit.Call;
 import retrofit.Callback;
+import retrofit.GsonConverterFactory;
 import retrofit.Response;
 import retrofit.Retrofit;
 
@@ -48,11 +53,24 @@ public class Creer_food extends AppCompatActivity {
         String description = this.description.getText().toString();
 
         APIClient apiClient = new APIClient(this);
+        //Test GET
+        /*Call<List<Food>> getCall = apiClient.listFoods();
+        getCall.enqueue(new Callback<List<Food>>() {
+            @Override
+            public void onResponse(Response<List<Food>> response, Retrofit retrofit) {
+                Log.w("HTTPGET", "test : " + response.body().get(0).getName());
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.w("HTTP", "Fail" + t.toString());
+            }
+        });*/
+
         Call<Void> call = apiClient.createFood(name, description);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Response<Void> response, Retrofit retrofit) {
-                Log.w("HTTP", "Test");
                 Log.w("HTTP", response.toString());
                 Toast.makeText(Creer_food.this, response.toString(), Toast.LENGTH_LONG).show();
             }
