@@ -27,7 +27,7 @@ function insert(food, callback){
 function update(name, food, callback){
 	Food.findOneAndUpdate({name : name}, food, function(err, food) {
 		if(err){
-			callback(err, "Update ailed")
+			callback(err, "Update failed")
 		}else{
 			callback(null, "Update success");
 		}
@@ -46,6 +46,7 @@ module.exports.getFood = function(req, res){
 };
 
 module.exports.insertFood = function(req, res){
+	console.log("Test : " + JSON.stringify(req.body));
 	find(req.body.name, function(err, result){
 		if(result){
 			update(req.body.name, req.body, function(err, result){
