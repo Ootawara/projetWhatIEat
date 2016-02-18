@@ -1,4 +1,4 @@
-package com.example.florent.whatieat.Model;
+package com.epsi.whatieat.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

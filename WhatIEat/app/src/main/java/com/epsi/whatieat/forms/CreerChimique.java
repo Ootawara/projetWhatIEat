@@ -1,13 +1,17 @@
-package com.example.florent.whatieat;
+package com.epsi.whatieat.forms;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MenuAccueil extends AppCompatActivity {
+import com.example.florent.whatieat.R;
+
+public class CreerChimique extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_accueil);
+        setContentView(R.layout.activity_creer_chimique);
+
+
     }
 }

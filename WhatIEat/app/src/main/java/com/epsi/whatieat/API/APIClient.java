@@ -1,16 +1,10 @@
-package com.example.florent.whatieat.API;
+package com.epsi.whatieat.API;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.example.florent.whatieat.Model.Food;
-import com.example.florent.whatieat.Model.FoodWS;
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import com.epsi.whatieat.Model.Food;
+import com.epsi.whatieat.Model.FoodWS;
 
-import java.io.IOException;
 import java.util.List;
 
 import retrofit.Call;
@@ -22,7 +16,8 @@ import retrofit.Retrofit;
  */
 public class APIClient {
 
-    static final String BASE_URL = "http://10.0.2.2:8000";
+    //static final String BASE_URL = "http://10.0.2.2:8000";
+    static final String BASE_URL = "http://78.193.226.46:8000";
     Context ctx;
     APIEndPoint apiEndPoint;
 

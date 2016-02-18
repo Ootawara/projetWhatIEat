@@ -1,4 +1,4 @@
-package com.example.florent.whatieat.Model;
+package com.epsi.whatieat.Model;
 
 /**
  * Created by Florent on 16/02/2016.

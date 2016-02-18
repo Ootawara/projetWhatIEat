@@ -1,7 +1,6 @@
-package com.example.florent.whatieat.forms;
+package com.epsi.whatieat.forms;
 
 import android.os.Bundle;
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -9,18 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.florent.whatieat.API.APIClient;
-import com.example.florent.whatieat.API.APIEndPoint;
-import com.example.florent.whatieat.MainActivity;
-import com.example.florent.whatieat.Model.Food;
-import com.example.florent.whatieat.Model.FoodWS;
+import com.epsi.whatieat.API.APIClient;
 import com.example.florent.whatieat.R;
-
-import java.util.List;
 
 import retrofit.Call;
 import retrofit.Callback;
-import retrofit.GsonConverterFactory;
 import retrofit.Response;
 import retrofit.Retrofit;
 

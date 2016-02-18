@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".forms.Creer_food"
+            android:name="com.epsi.whatieat.forms.Creer_food"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -19,11 +19,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MenuRecherche">
+        <activity android:name="com.epsi.whatieat.MenuRecherche">
 		</activity>
-        <activity android:name=".MenuAccueil">
+        <activity android:name="com.epsi.whatieat.MenuAccueil">
 		</activity>
-        <activity android:name=".MenuRechercheResultats">
+        <activity android:name="com.epsi.whatieat.MenuRechercheResultats">
 		</activity>
         <activity android:name=".CreerChimique" >
         </activity>

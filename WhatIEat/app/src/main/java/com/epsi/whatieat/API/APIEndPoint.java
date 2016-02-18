@@ -1,7 +1,7 @@
-package com.example.florent.whatieat.API;
+package com.epsi.whatieat.API;
 
-import com.example.florent.whatieat.Model.Food;
-import com.example.florent.whatieat.Model.FoodWS;
+import com.epsi.whatieat.Model.FoodWS;
+import com.epsi.whatieat.Model.Food;
 
 import java.util.List;
 
