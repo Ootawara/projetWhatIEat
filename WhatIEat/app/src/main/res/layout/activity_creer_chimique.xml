@@ -6,7 +6,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.florent.whatieat.CreerChimique">
+    tools:context=".forms.CreerChimique">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,8 +21,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:id="@+id/editText"
         android:layout_marginTop="37dp"
+=======
+        android:id="@+id/food_name"
+        android:layout_marginTop="56dp"
+>>>>>>> 87cff12a31e0f3f0c1c6edd8f0d269238beab365
         android:text="Nom"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true" />
@@ -30,10 +35,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/food_description"
         android:text="Description de l&apos;élément"
-        android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/editText"
+        android:layout_below="@+id/food_name"
+        android:layout_alignStart="@+id/food_name"
         android:layout_marginTop="37dp" />
 
     <EditText
@@ -41,8 +46,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText3"
         android:text="Effets"
-        android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_below="@+id/food_name"
+        android:layout_alignStart="@+id/food_description"
         android:layout_marginTop="127dp" />
 
     <EditText

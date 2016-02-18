@@ -27,7 +27,7 @@ function insert(food, callback){
 function update(name, food, callback){
 	Food.findOneAndUpdate({name : name}, food, function(err, food) {
 		if(err){
-			callback(err, "Update ailed")
+			callback(err, "Update failed")
 		}else{
 			callback(null, "Update success");
 		}
@@ -46,6 +46,7 @@ module.exports.getFood = function(req, res){
 };
 
 module.exports.insertFood = function(req, res){
+	console.log("Test : " + JSON.stringify(req.body));
 	find(req.body.name, function(err, result){
 		if(result){
 			update(req.body.name, req.body, function(err, result){
@@ -70,13 +71,16 @@ module.exports.insertFood = function(req, res){
 
 module.exports.addComponents = function(req, res){
 	find(req.body.name, function(err, result){
-		Food.findOneAndUpdate({name : req.body.name}, { $push: {"isComposedBy": req.body.isComposedBy}}, function(err, food) {
-				res.json(food);
+
+		var list = req.body.isComposedBy.split(",");
+		Food.findOneAndUpdate({name : req.body.name}, {"isComposedBy": list}, function(err, component) {
+				res.json(component);
 		});
 	});
 };
 
 module.exports.getAllFoods = function (req, res){
+	console.log('test all');
 	Food.find({}, function(err, foods){
 		if(err){
 			res.json(err);

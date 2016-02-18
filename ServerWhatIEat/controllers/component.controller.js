@@ -70,7 +70,8 @@ module.exports.insertComponent = function(req, res){
 
 module.exports.addFoods = function(req, res){
 	find(req.body.name, function(err, result){
-		Component.findOneAndUpdate({name : req.body.name}, { $push: {"isInWhat": req.body.isInWhat}}, function(err, component) {
+		var list = req.body.isInWhat.split(",");
+		Component.findOneAndUpdate({name : req.body.name}, {"isInWhat": list}, function(err, component) {
 				res.json(component);
 		});
 	});
