@@ -14,21 +14,26 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="ELEMENT CHIMIQUE"
         android:id="@+id/textView"
+        android:layout_marginTop="60dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+        android:id="@+id/editText"
+        android:layout_marginTop="37dp"
+=======
         android:id="@+id/food_name"
         android:layout_marginTop="56dp"
+>>>>>>> 87cff12a31e0f3f0c1c6edd8f0d269238beab365
         android:text="Nom"
         android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="59dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/food_description"
         android:text="Description de l&apos;élément"
@@ -37,7 +42,7 @@
         android:layout_marginTop="37dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText3"
         android:text="Effets"
@@ -46,7 +51,7 @@
         android:layout_marginTop="127dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText4"
         android:layout_below="@+id/editText3"
@@ -61,4 +66,22 @@
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        android:id="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Précédent"
+        android:id="@+id/button3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

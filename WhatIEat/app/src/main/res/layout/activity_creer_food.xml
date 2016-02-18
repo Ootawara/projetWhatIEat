@@ -14,20 +14,19 @@
         android:text="ALIMENT"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/button" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/food_name"
         android:layout_marginTop="56dp"
         android:text="Nom"
         android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="59dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/food_description"
         android:text="Qu&apos;est ce que c&apos;est ?"
@@ -35,6 +34,27 @@
         android:layout_alignStart="@+id/food_name"
         android:layout_marginTop="37dp" />
 
+<<<<<<< HEAD
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:text="Effets (i.e. allergies, ...)"
+        android:layout_below="@+id/editText"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="127dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText4"
+        android:layout_below="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:layout_marginTop="49dp"
+        android:text="Qu&apos;est ce qui le compose ?" />
+
+=======
+>>>>>>> 87cff12a31e0f3f0c1c6edd8f0d269238beab365
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
