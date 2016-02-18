@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
-import com.example.florent.whatieat.R;
+import com.epsi.whatieat.R;
+
 
 public class MenuRecherche extends AppCompatActivity {
 

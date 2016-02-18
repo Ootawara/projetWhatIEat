@@ -29,32 +29,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/food_description"
-        android:text="Qu&apos;est ce que c&apos;est ?"
+        android:text="Qu'est ce que c'est ?"
         android:layout_below="@+id/food_name"
-        android:layout_alignStart="@+id/food_name"
-        android:layout_marginTop="37dp" />
-
-<<<<<<< HEAD
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:text="Effets (i.e. allergies, ...)"
-        android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_marginTop="127dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_marginTop="49dp"
-        android:text="Qu&apos;est ce qui le compose ?" />
-
-=======
->>>>>>> 87cff12a31e0f3f0c1c6edd8f0d269238beab365
+        android:layout_alignStart="@+id/food_name" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

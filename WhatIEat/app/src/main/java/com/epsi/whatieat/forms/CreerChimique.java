@@ -3,7 +3,7 @@ package com.epsi.whatieat.forms;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.florent.whatieat.R;
+import com.epsi.whatieat.R;
 
 public class CreerChimique extends AppCompatActivity {
 

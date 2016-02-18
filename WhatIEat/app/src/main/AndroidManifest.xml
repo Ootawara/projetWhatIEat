@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.florent.whatieat" >
+    package="com.epsi.whatieat" >
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
@@ -25,12 +25,8 @@
 		</activity>
         <activity android:name="com.epsi.whatieat.MenuRechercheResultats">
 		</activity>
-        <activity android:name=".CreerChimique" >
+        <activity android:name="com.epsi.whatieat.forms.CreerChimique" >
         </activity>
-        <activity android:name=".Creer_food" >
-        </activity>
-        <!--<activity android:name=".Creer_food" >
-        </activity>-->
     </application>
 
 </manifest>

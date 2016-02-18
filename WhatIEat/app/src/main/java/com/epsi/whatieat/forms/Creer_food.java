@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.epsi.whatieat.API.APIClient;
-import com.example.florent.whatieat.R;
+import com.epsi.whatieat.R;
 
 import retrofit.Call;
 import retrofit.Callback;

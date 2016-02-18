@@ -42,4 +42,8 @@ public class APIClient {
     public Call<List<Food>> listFoods(){
         return apiEndPoint.listFoods();
     }
+
+    public Call<Food> getFood(String name){
+        return apiEndPoint.getFood(name);
+    }
 }
