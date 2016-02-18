@@ -43,7 +43,7 @@ public class APIClient {
         return apiEndPoint.listFoods();
     }
 
-    public Call<Food> getFood(String name){
+    public Call<List<Food>> getFood(String name){
         return apiEndPoint.getFood(name);
     }
 }

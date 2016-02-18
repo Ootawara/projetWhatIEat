@@ -78,7 +78,7 @@ module.exports.addFoods = function(req, res){
 };
 
 module.exports.getAllComponents = function (req, res){
-	Component.find({}, function(err, components){
+	Component.find({}, 'name', function(err, components){
 		if(err){
 			res.json(err);
 		}else{

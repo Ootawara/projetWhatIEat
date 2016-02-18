@@ -9,7 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.epsi.whatieat.API.APIClient;
+import com.epsi.whatieat.Model.Food;
+import com.epsi.whatieat.Model.FoodWS;
 import com.epsi.whatieat.R;
+
+import java.util.List;
 
 import retrofit.Call;
 import retrofit.Callback;
@@ -46,11 +50,29 @@ public class Creer_food extends AppCompatActivity {
 
         APIClient apiClient = new APIClient(this);
         //Test GET
-        /*Call<List<Food>> getCall = apiClient.listFoods();
+        Call<List<Food>> getCall = apiClient.listFoods();
         getCall.enqueue(new Callback<List<Food>>() {
             @Override
             public void onResponse(Response<List<Food>> response, Retrofit retrofit) {
-                Log.w("HTTPGET", "test : " + response.body().get(0).getName());
+                String[] foodName = new String[response.body().size()];
+                for(int i=0; i<response.body().size(); i++){
+                    foodName[i] = response.body().get(i).getName();
+                }
+
+                Log.w("HTTPGET", "test : " + foodName[1]);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.w("HTTP", "Fail" + t.toString());
+            }
+        });
+        //test get one
+        /*Call<List<Food>> getCall = apiClient.getFood("Coca");
+        getCall.enqueue(new Callback<List<Food>>() {
+            @Override
+            public void onResponse(Response<List<Food>> response, Retrofit retrofit) {
+                Log.w("HTTPGET", "test : " + response.body().get(0).getName() + " " + response.body().get(0).getDescription());
             }
 
             @Override
@@ -63,7 +85,7 @@ public class Creer_food extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Response<Void> response, Retrofit retrofit) {
-                Log.w("HTTP", response.toString());
+                //Log.w("HTTP", response.toString());
                 Toast.makeText(Creer_food.this, response.toString(), Toast.LENGTH_LONG).show();
             }
 
