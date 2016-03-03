@@ -1,5 +1,6 @@
 package com.epsi.whatieat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,6 +25,7 @@ public class MenuRecherche extends AppCompatActivity {
     EditText myFoodProduct2Field;
     EditText myFoodProduct3Field;
     Button sendAndResearch;
+    Button buttonMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,18 @@ public class MenuRecherche extends AppCompatActivity {
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MenuRecherche.this.get_all_foods();
+            }
+        });
+
+        // Go to menu principal
+        buttonMenu = (Button)findViewById(R.id.buttonMenu);
+
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuRecherche.this, MenuRecherche.class);
+                startActivity(intent);
             }
         });
     }
