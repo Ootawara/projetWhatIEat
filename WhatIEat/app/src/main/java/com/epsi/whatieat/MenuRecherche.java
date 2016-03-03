@@ -1,5 +1,6 @@
 package com.epsi.whatieat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,6 +39,8 @@ public class MenuRecherche extends AppCompatActivity {
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MenuRecherche.this.get_all_foods();
+                Intent intent = new Intent(MenuRecherche.this, MenuRechercheResultats.class);
+                startActivity(intent);
             }
         });
     }
