@@ -81,7 +81,7 @@ module.exports.addComponents = function(req, res){
 
 module.exports.getAllFoods = function (req, res){
 	console.log('test all');
-	Food.find({}, function(err, foods){
+	Food.find({}, 'name', function(err, foods){
 		if(err){
 			res.json(err);
 		}else{

@@ -21,5 +21,5 @@ public interface APIEndPoint {
     @GET("/food")
     Call<List<Food>> listFoods();
     @GET("/food/{name}")
-    Call<Food> getFood(@Path("name") String name);
+    Call<List<Food>> getFood(@Path("name") String name);
 }
