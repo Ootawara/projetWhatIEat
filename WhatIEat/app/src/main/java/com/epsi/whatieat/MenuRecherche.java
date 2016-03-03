@@ -25,6 +25,7 @@ public class MenuRecherche extends AppCompatActivity {
     EditText myFoodProduct2Field;
     EditText myFoodProduct3Field;
     Button sendAndResearch;
+    Button buttonMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,18 @@ public class MenuRecherche extends AppCompatActivity {
             public void onClick(View v) {
                 MenuRecherche.this.get_all_foods();
                 Intent intent = new Intent(MenuRecherche.this, MenuRechercheResultats.class);
+                startActivity(intent);
+            }
+        });
+
+        // Go to menu principal
+        buttonMenu = (Button)findViewById(R.id.buttonMenu);
+
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuRecherche.this, MenuRecherche.class);
                 startActivity(intent);
             }
         });
