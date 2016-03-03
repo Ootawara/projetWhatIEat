@@ -1,9 +1,7 @@
 package com.epsi.whatieat;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.epsi.whatieat.R;
+import android.support.v7.app.AppCompatActivity;
 
 public class MenuAccueil extends AppCompatActivity {
 
@@ -12,4 +10,6 @@ public class MenuAccueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_accueil);
     }
+
+
 }
