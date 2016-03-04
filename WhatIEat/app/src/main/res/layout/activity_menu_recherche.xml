@@ -13,37 +13,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Menu de Recherche"
+        android:text="Menu de Recherche Food"
         android:id="@+id/textViewMenuRecherche"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/buttonPrevious"
-        android:layout_toEndOf="@+id/buttonPrevious"
-        android:layout_marginTop="30dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextProd1"
-        android:layout_marginTop="47dp"
-        android:text="Entrer un aliment ou un produit"
+        android:layout_marginTop="85dp"
+        android:text="Entrer un aliment"
         android:layout_below="@+id/textViewMenuRecherche"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextProd2"
-        android:layout_marginTop="39dp"
-        android:text="Entrer un aliment ou un produit"
-        android:layout_below="@+id/editTextProd1"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextProd3"
-        android:layout_marginTop="39dp"
-        android:text="Entrer un aliment ou un produit"
-        android:layout_below="@+id/editTextProd2"
         android:layout_alignParentStart="true" />
 
     <Button

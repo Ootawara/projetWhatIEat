@@ -1,9 +1,9 @@
 package com.epsi.whatieat;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +11,6 @@ import android.widget.EditText;
 
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Component;
-import com.epsi.whatieat.Model.Food;
 
 import java.util.List;
 
@@ -23,8 +22,6 @@ import retrofit.Retrofit;
 public class MenuRechercheChimique extends AppCompatActivity {
 
     EditText myChemicalProduct1Field;
-    EditText myChemicalProduct2Field;
-    EditText myChemicalProduct3Field;
     Button sendAndResearch;
 
     Call<List<Component>> getCall;
@@ -35,8 +32,6 @@ public class MenuRechercheChimique extends AppCompatActivity {
         setContentView(R.layout.activity_menu_recherche_chimique);
 
         myChemicalProduct1Field = (EditText)findViewById(R.id.editTextProd1);
-        myChemicalProduct2Field = (EditText)findViewById(R.id.editTextProd2);
-        myChemicalProduct3Field = (EditText)findViewById(R.id.editTextProd3);
         sendAndResearch = (Button)findViewById(R.id.buttonRecherche);
 
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
