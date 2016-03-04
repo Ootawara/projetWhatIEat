@@ -1,6 +1,7 @@
 package com.epsi.whatieat;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,8 @@ public class MenuRechercheChimique extends AppCompatActivity {
     EditText myChemicalProduct3Field;
     Button sendAndResearch;
 
+    Call<List<Component>> getCall;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
             public void onClick(View v) {
                 MenuRechercheChimique.this.get_all_chemicals();
                 Intent intent = new Intent(MenuRechercheChimique.this, MenuRechercheResultatsChimiques.class);
+                intent.putExtra("listeComponent", (Parcelable) getCall);
                 startActivity(intent);
             }
         });
@@ -49,7 +53,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
 
         APIClient apiClient = new APIClient(this);
         //Test GET
-        Call<List<Component>> getCall = apiClient.listComponents();
+        getCall = apiClient.listComponents();
         getCall.enqueue(new Callback<List<Component>>() {
             @Override
             public void onResponse(Response<List<Component>> response, Retrofit retrofit) {

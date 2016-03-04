@@ -37,4 +37,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
+    <ListView
+        android:id="@+id/listeResultat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>

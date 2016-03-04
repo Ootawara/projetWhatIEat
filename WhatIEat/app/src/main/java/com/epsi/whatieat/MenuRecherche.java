@@ -2,6 +2,7 @@ package com.epsi.whatieat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,7 @@ public class MenuRecherche extends AppCompatActivity {
     EditText myFoodProduct3Field;
     Button sendAndResearch;
     Button buttonMenu;
+    Call<List<Food>> getCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MenuRecherche extends AppCompatActivity {
             public void onClick(View v) {
                 MenuRecherche.this.get_all_foods();
                 Intent intent = new Intent(MenuRecherche.this, MenuRechercheResultats.class);
+                intent.putExtra("listeFood", (Parcelable) getCall);
                 startActivity(intent);
             }
         });
@@ -62,7 +65,7 @@ public class MenuRecherche extends AppCompatActivity {
 
         APIClient apiClient = new APIClient(this);
         //Test GET
-        Call<List<Food>> getCall = apiClient.listFoods();
+        getCall = apiClient.listFoods();
         getCall.enqueue(new Callback<List<Food>>() {
             @Override
             public void onResponse(Response<List<Food>> response, Retrofit retrofit) {
