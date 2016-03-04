@@ -100,6 +100,7 @@ public class AfficherFood extends AppCompatActivity {
 
         String name = this.cNom.getText().toString();
         String description = this.cDescription.getText().toString();
+        String id = "";
 
         APIClient apiClient = new APIClient(this);
         //Test GET
@@ -120,7 +121,7 @@ public class AfficherFood extends AppCompatActivity {
                 Log.w("HTTP", "Fail" + t.toString());
             }
         });
-        Call<Void> call = apiClient.createFood(name, description);
+        Call<Void> call = apiClient.createFood(name, description, id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Response<Void> response, Retrofit retrofit) {

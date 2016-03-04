@@ -25,7 +25,7 @@ public class MenuRecherche extends AppCompatActivity {
     EditText myFoodField;
     Button sendAndResearch;
     Button buttonMenu;
-    Call<List<Food>> getCall;
+    List<Food> listFood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MenuRecherche extends AppCompatActivity {
             public void onClick(View v) {
                 MenuRecherche.this.get_all_foods();
                 Intent intent = new Intent(MenuRecherche.this, MenuRechercheResultats.class);
-                intent.putExtra("listeFood", (Parcelable) getCall);
+                intent.putExtra("listeFood", (Parcelable) listFood);
                 startActivity(intent);
             }
         });
@@ -61,11 +61,13 @@ public class MenuRecherche extends AppCompatActivity {
 
         APIClient apiClient = new APIClient(this);
         //Test GET
-        getCall = apiClient.listFoods();
+        Call<List<Food>> getCall = apiClient.listFoods();
         getCall.enqueue(new Callback<List<Food>>() {
             @Override
             public void onResponse(Response<List<Food>> response, Retrofit retrofit) {
+                listFood = response.body();
                 Log.w("HTTP_GET_ALL_FOODS", "test : " + response.body().get(0).getName());
+
             }
             @Override
             public void onFailure(Throwable t) {
