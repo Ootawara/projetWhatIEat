@@ -25,7 +25,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
     Button sendAndResearch;
     Button buttonMenu;
 
-    Call<List<Component>> getCall;
+    List<Component> listeComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
             public void onClick(View v) {
                 MenuRechercheChimique.this.get_all_chemicals();
                 Intent intent = new Intent(MenuRechercheChimique.this, MenuRechercheResultatsChimiques.class);
-                intent.putExtra("listeComponent", (Parcelable) getCall);
+                intent.putExtra("listeComponent", (Parcelable) listeComponent);
                 startActivity(intent);
             }
         });
@@ -61,11 +61,12 @@ public class MenuRechercheChimique extends AppCompatActivity {
 
         APIClient apiClient = new APIClient(this);
         //Test GET
-        getCall = apiClient.listComponents();
+        Call<List<Component>> getCall = apiClient.listComponents();
         getCall.enqueue(new Callback<List<Component>>() {
             @Override
             public void onResponse(Response<List<Component>> response, Retrofit retrofit) {
                 Log.w("HTTP_GET_ALL_COMPONENTS", "test : " + response.body().get(0).getName());
+                listeComponent = response.body();
             }
 
             @Override
