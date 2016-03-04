@@ -1,5 +1,6 @@
 package com.epsi.whatieat.forms;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.epsi.whatieat.API.APIClient;
+import com.epsi.whatieat.MenuAccueil;
 import com.epsi.whatieat.Model.Food;
 import com.epsi.whatieat.R;
 
@@ -23,6 +25,7 @@ public class Creer_food extends AppCompatActivity {
 
     EditText name, description;
     Button send;
+    Button buttonMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,17 @@ public class Creer_food extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Creer_food.this.save_food();
+            }
+        });
+
+        // Go to menu principals
+        buttonMenu = (Button)findViewById(R.id.food_menu);
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Creer_food.this, MenuAccueil.class);
+                startActivity(intent);
             }
         });
     }

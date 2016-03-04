@@ -1,11 +1,13 @@
 package com.epsi.whatieat;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.epsi.whatieat.Model.Component;
-import com.epsi.whatieat.Model.Food;
 
 import java.util.ArrayList;
 
@@ -16,6 +18,7 @@ public class AfficherComponent extends AppCompatActivity {
     String description;
     String effect;
     ArrayList<Component> listeComponent;
+    Button buttonMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +49,17 @@ public class AfficherComponent extends AppCompatActivity {
         cEffects.setText(effect);
         cEffects.setFocusable(false);
         cEffects.setClickable(false);
+
+        // Go to menu principal
+        buttonMenu = (Button)findViewById(R.id.component_menu);
+
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AfficherComponent.this, MenuAccueil.class);
+                startActivity(intent);
+            }
+        });
     }
 }
