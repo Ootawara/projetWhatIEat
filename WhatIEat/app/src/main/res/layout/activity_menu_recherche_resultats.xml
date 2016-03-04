@@ -39,6 +39,9 @@
 
     <ListView
         android:id="@+id/listeResultat"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/textViewResult"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
