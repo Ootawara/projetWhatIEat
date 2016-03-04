@@ -48,11 +48,11 @@ public class APIClient {
         return apiEndPoint.getFood(name);
     }
 
-    public Call<Void> createComponent(String name, String description, String id){
+    public Call<Void> createComponent(String name, String description, String effects){
         ComponentWS f = new ComponentWS();
         f.setName(name);
         f.setDescription(description);
-        f.setId(id);
+        f.setEffects(effects);
 
         return apiEndPoint.createComponent(f);
     }

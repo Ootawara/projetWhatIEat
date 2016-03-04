@@ -45,13 +45,13 @@ public class MenuRecherche extends AppCompatActivity {
         });
 
         // Go to menu principal
-        buttonMenu = (Button)findViewById(R.id.buttonMenu);
+        buttonMenu = (Button)findViewById(R.id.food_search_menu);
 
         buttonMenu.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuRecherche.this, MenuRecherche.class);
+                Intent intent = new Intent(MenuRecherche.this, MenuAccueil.class);
                 startActivity(intent);
             }
         });

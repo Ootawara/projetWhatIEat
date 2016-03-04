@@ -16,7 +16,7 @@
         android:text="Menu de Recherche Food"
         android:id="@+id/textViewMenuRecherche"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/buttonPrevious"
+        android:layout_below="@+id/chimique_result_previous"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Précédent"
-        android:id="@+id/buttonPrevious"
+        android:id="@+id/chimique_result_previous"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -51,8 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu"
-        android:id="@+id/buttonMenu"
-        android:layout_alignTop="@+id/buttonPrevious"
+        android:id="@+id/food_search_menu"
+        android:layout_alignTop="@+id/chimique_result_previous"
         android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

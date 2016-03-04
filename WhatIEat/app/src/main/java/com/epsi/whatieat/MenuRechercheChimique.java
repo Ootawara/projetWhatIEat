@@ -23,6 +23,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
 
     EditText myChemicalProduct1Field;
     Button sendAndResearch;
+    Button buttonMenu;
 
     Call<List<Component>> getCall;
 
@@ -32,13 +33,25 @@ public class MenuRechercheChimique extends AppCompatActivity {
         setContentView(R.layout.activity_menu_recherche_chimique);
 
         myChemicalProduct1Field = (EditText)findViewById(R.id.editTextProd1);
-        sendAndResearch = (Button)findViewById(R.id.buttonRecherche);
+        sendAndResearch = (Button)findViewById(R.id.buttonRechercheChimique);
 
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MenuRechercheChimique.this.get_all_chemicals();
                 Intent intent = new Intent(MenuRechercheChimique.this, MenuRechercheResultatsChimiques.class);
                 intent.putExtra("listeComponent", (Parcelable) getCall);
+                startActivity(intent);
+            }
+        });
+
+        // Go to menu principal
+        buttonMenu = (Button)findViewById(R.id.chimique_search_menu);
+
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuRechercheChimique.this, MenuAccueil.class);
                 startActivity(intent);
             }
         });

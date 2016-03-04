@@ -13,7 +13,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Résultats de la Recherche"
         android:id="@+id/textViewResult"
-        android:layout_below="@+id/buttonPrevious"
+        android:layout_below="@+id/chimique_result_previous"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp" />
 
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Précédant"
-        android:id="@+id/buttonPrevious"
+        android:id="@+id/chimique_result_previous"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -31,12 +31,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu"
-        android:id="@+id/buttonMenu"
+        android:id="@+id/chimique_result_menu"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
     <ListView
         android:id="@+id/listeResultat"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/textViewResult"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

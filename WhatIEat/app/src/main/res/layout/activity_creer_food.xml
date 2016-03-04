@@ -11,10 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="ALIMENT"
+        android:text="CREER ALIMENT"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/food_revious"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -30,8 +31,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/food_description"
         android:text="Qu'est ce que c'est ?"
-        android:layout_below="@+id/food_name"
-        android:layout_alignStart="@+id/food_name" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,5 +40,23 @@
         android:id="@+id/food_send"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Précédent"
+        android:id="@+id/food_revious"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        android:id="@+id/food_menu"
+        android:layout_above="@+id/textView"
+        android:layout_alignEnd="@+id/food_name" />
 
 </RelativeLayout>

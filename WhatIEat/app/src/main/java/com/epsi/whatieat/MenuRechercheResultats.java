@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.epsi.whatieat.Model.Component;
 import com.epsi.whatieat.Model.Food;
 
 import java.util.ArrayList;
@@ -46,13 +45,13 @@ public class MenuRechercheResultats extends AppCompatActivity {
         });
 
         // Go to menu principal
-        buttonMenu = (Button)findViewById(R.id.buttonMenu);
+        buttonMenu = (Button)findViewById(R.id.food_result_menu);
 
         buttonMenu.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuRechercheResultats.this, MenuRecherche.class);
+                Intent intent = new Intent(MenuRechercheResultats.this, MenuAccueil.class);
                 startActivity(intent);
             }
         });

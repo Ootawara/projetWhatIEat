@@ -32,6 +32,7 @@ public class ComponentWS {
     public String getName() {
         return name;
     }
+
     /**
      *
      * (Required)
@@ -42,6 +43,7 @@ public class ComponentWS {
     public void setName(String name) {
         this.name = name;
     }
+
     /**
      *
      * @return
