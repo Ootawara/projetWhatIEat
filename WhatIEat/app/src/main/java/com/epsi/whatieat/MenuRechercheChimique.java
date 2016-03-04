@@ -6,8 +6,10 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Component;
@@ -26,6 +28,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
     Button sendAndResearch;
     Button buttonMenu;
 
+    ListView listeResultats;
     List<Component> listeComponent;
 
     @Override
@@ -36,11 +39,21 @@ public class MenuRechercheChimique extends AppCompatActivity {
         myChemicalProduct1Field = (EditText)findViewById(R.id.editTextProd1);
         sendAndResearch = (Button)findViewById(R.id.buttonRechercheChimique);
 
-        sendAndResearch.setOnClickListener(new View.OnClickListener() {
+        ArrayList<String> nomsComponent = new ArrayList<String>();
+        for(Component c : listeComponent){
+            nomsComponent.add(c.getName());
+        }
+
+        listeResultats = (ListView) findViewById(R.id.listeResultatChimique);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, nomsComponent);
+        listeResultats.setOnClickListener(new View.OnClickListener() {
+
+            @Override
             public void onClick(View v) {
-                MenuRechercheChimique.this.get_all_chemicals();
-                Intent intent = new Intent(MenuRechercheChimique.this, MenuRechercheResultatsChimiques.class);
-                intent.putExtra("listeComponent", (ArrayList<Component>) listeComponent);
+                Intent intent = new Intent(MenuRechercheChimique.this, AfficherComponent.class);
+                Button b = (Button) v;
+                String nom = (String) b.getText();
+                intent.putExtra("nomComponent", nom);
                 startActivity(intent);
             }
         });

@@ -6,8 +6,10 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Food;
@@ -28,7 +30,9 @@ public class MenuRecherche extends AppCompatActivity {
     Button sendAndResearch;
     Button buttonMenu;
     List<Food> listFood;
-    EditText myFoodProduct1Field;
+    ListView listeResultats;
+    List<String> nomsFood;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +42,22 @@ public class MenuRecherche extends AppCompatActivity {
         myFoodField = (EditText)findViewById(R.id.editTextFood);
         sendAndResearch = (Button)findViewById(R.id.food_button_recherche);
 
-        sendAndResearch.setOnClickListener(new View.OnClickListener() {
+        listeResultats = (ListView) findViewById(R.id.listeResultat);
+        nomsFood = new ArrayList<String>();
+
+        for(Food f : listFood){
+            nomsFood.add(f.getName());
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRecherche.this, android.R.layout.simple_list_item_1, nomsFood);
+        listeResultats.setOnClickListener(new View.OnClickListener() {
+
+            @Override
             public void onClick(View v) {
-                MenuRecherche.this.get_all_foods();
-                Intent intent = new Intent(MenuRecherche.this, MenuRechercheResultats.class);
-                intent.putExtra("listeFood", (ArrayList<Food>) listFood);
+                Intent intent = new Intent(MenuRecherche.this, AfficherFood.class);
+                Button b = (Button) v;
+                String nom = (String) b.getText();
+                intent.putExtra("nomFood", nom);
                 startActivity(intent);
             }
         });
