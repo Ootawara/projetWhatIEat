@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +55,31 @@ public class MenuRechercheChimique extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MenuRechercheChimique.this, MenuAccueil.class);
                 startActivity(intent);
+            }
+        });
+
+        sendAndResearch = (Button) findViewById(R.id.buttonComponentSearch);
+        sendAndResearch.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                String toSearch = myChemicalProduct1Field.getText().toString();
+                ArrayList<String> filteredComponent = new ArrayList<String>();
+                for(String n : nomsComponent){
+                    if (n.contains(toSearch)) filteredComponent.add(n);
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, filteredComponent);
+                listeResultats.setAdapter(adapter);
+                listeResultats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(MenuRechercheChimique.this, AfficherComponent.class);
+                        AppCompatTextView b = (AppCompatTextView) view;
+                        String nom = (String) b.getText();
+                        intent.putExtra("nomComponent", nom);
+                        startActivity(intent);
+                    }
+                });
             }
         });
     }

@@ -56,6 +56,31 @@ public class MenuRecherche extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        sendAndResearch = (Button) findViewById(R.id.food_button_recherche);
+        sendAndResearch.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                String toSearch = myFoodField.getText().toString();
+                ArrayList<String> filteredFood = new ArrayList<String>();
+                for(String n : nomsFood){
+                    if (n.contains(toSearch)) filteredFood.add(n);
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRecherche.this, android.R.layout.simple_list_item_1, filteredFood);
+                listeResultats.setAdapter(adapter);
+                listeResultats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(MenuRecherche.this, AfficherFood.class);
+                        AppCompatTextView b = (AppCompatTextView) view;
+                        String nom = (String) b.getText();
+                        intent.putExtra("nomFood", nom);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
     }
 
     public void constructList(){
