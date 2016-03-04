@@ -1,6 +1,7 @@
 package com.epsi.whatieat.API;
 
 import com.epsi.whatieat.Model.Component;
+import com.epsi.whatieat.Model.ComponentWS;
 import com.epsi.whatieat.Model.FoodWS;
 import com.epsi.whatieat.Model.Food;
 
@@ -26,4 +27,8 @@ public interface APIEndPoint {
 
     @GET("/component")
     Call<List<Component>> listComponents();
+    @POST("/Component/")
+    Call<Void> createComponent(@Body ComponentWS c);
+    @GET("/Component/{name}")
+    Call<List<Component>> getComponent(@Path("name") String name);
 }

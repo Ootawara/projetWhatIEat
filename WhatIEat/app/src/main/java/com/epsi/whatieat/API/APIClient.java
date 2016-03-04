@@ -3,6 +3,7 @@ package com.epsi.whatieat.API;
 import android.content.Context;
 
 import com.epsi.whatieat.Model.Component;
+import com.epsi.whatieat.Model.ComponentWS;
 import com.epsi.whatieat.Model.Food;
 import com.epsi.whatieat.Model.FoodWS;
 
@@ -44,6 +45,18 @@ public class APIClient {
 
     public Call<List<Food>> getFood(String name){
         return apiEndPoint.getFood(name);
+    }
+
+    public Call<Void> createComponent(String name, String description){
+        ComponentWS f = new ComponentWS();
+        f.setName(name);
+        f.setDescription(description);
+
+        return apiEndPoint.createComponent(f);
+    }
+
+    public Call<List<Component>> getComponent(String name){
+        return apiEndPoint.getComponent(name);
     }
 
     public Call<List<Component>> listComponents(){
