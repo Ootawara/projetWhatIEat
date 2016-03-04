@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Food;
-import com.epsi.whatieat.Model.FoodWS;
 import com.epsi.whatieat.R;
 
 import java.util.List;
