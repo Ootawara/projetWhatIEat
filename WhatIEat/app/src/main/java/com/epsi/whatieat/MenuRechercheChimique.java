@@ -33,7 +33,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
         setContentView(R.layout.activity_menu_recherche_chimique);
 
         myChemicalProduct1Field = (EditText)findViewById(R.id.editTextProd1);
-        sendAndResearch = (Button)findViewById(R.id.buttonRecherche);
+        sendAndResearch = (Button)findViewById(R.id.buttonRechercheChimique);
 
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
