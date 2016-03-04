@@ -36,6 +36,8 @@ public class MenuRecherche extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_recherche);
 
+        MenuRecherche.this.get_all_foods();
+
         myFoodField = (EditText)findViewById(R.id.editTextFood);
         sendAndResearch = (Button)findViewById(R.id.food_button_recherche);
 
