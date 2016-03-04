@@ -12,6 +12,7 @@ import android.widget.EditText;
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Call;
@@ -39,7 +40,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
             public void onClick(View v) {
                 MenuRechercheChimique.this.get_all_chemicals();
                 Intent intent = new Intent(MenuRechercheChimique.this, MenuRechercheResultatsChimiques.class);
-                intent.putExtra("listeComponent", (Parcelable) listeComponent);
+                intent.putExtra("listeComponent", (ArrayList<Component>) listeComponent);
                 startActivity(intent);
             }
         });

@@ -1,9 +1,11 @@
 package com.epsi.whatieat.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Florent on 16/02/2016.
  */
-public class Food {
+public class Food implements Serializable{
 
     String name, description, id;
     public Food(){

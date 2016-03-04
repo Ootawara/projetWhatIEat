@@ -3,6 +3,7 @@ package com.epsi.whatieat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,9 +25,12 @@ public class MenuRechercheResultats extends AppCompatActivity {
         setContentView(R.layout.activity_menu_recherche_resultats);
 
         Bundle b = getIntent().getExtras();
-        listeFood = b.getParcelable("listeFood");
+        listeFood = (ArrayList<Food>) b.getSerializable("listeFood");
         ArrayList<String> nomsFood = new ArrayList<>();
+        Boolean is = listeFood.isEmpty();
+        Log.w("List food is empty ? : ", is.toString());
         for(Food f : listeFood){
+            Log.w("Food : ", f.getName());
             nomsFood.add(f.getName());
         }
         listeResultats = (ListView) findViewById(R.id.listeResultat);

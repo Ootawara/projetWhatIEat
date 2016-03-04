@@ -1,9 +1,11 @@
 package com.epsi.whatieat.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by tamiand on 03/03/2016.
  */
-public class Component {
+public class Component implements Serializable{
 
     String name, description, effects, id;
     public Component(){

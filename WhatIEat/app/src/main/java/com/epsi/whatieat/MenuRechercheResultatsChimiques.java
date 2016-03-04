@@ -24,7 +24,7 @@ public class MenuRechercheResultatsChimiques extends AppCompatActivity {
         setContentView(R.layout.activity_menu_recherche_resultats_chimiques);
 
         Bundle b = getIntent().getExtras();
-        listeComponent = b.getParcelable("listeComponent");
+        listeComponent = (ArrayList<Component>) b.getSerializable("listeComponent");
         ArrayList<String> nomsComponent = new ArrayList<>();
         for(Component c : listeComponent){
             nomsComponent.add(c.getName());
