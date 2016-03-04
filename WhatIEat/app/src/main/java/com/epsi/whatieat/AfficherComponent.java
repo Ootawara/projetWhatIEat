@@ -10,17 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Component;
 
 import java.util.ArrayList;
 
 public class AfficherComponent extends AppCompatActivity {
 
-
     String nom;
     String description;
     String effect;
-    ArrayList<Component> listeComponent;
 
     EditText cNom;
     EditText cDescription;
@@ -35,19 +34,17 @@ public class AfficherComponent extends AppCompatActivity {
         setContentView(R.layout.activity_afficher_component);
         Bundle b = getIntent().getExtras();
         nom = b.getString("nomComponent");
-        listeComponent = b.getParcelable("listeComponent");
+
+        APIClient api = new APIClient(this);
+        Component c = (Component) api.getComponent(nom);
+
+        description = c.getDescription();
+        effect = c.getEffects();
 
         cNom = (EditText) findViewById(R.id.component_name);
         cNom.setText(nom);
         cNom.setFocusable(false);
         cNom.setClickable(false);
-
-        for (Component c : listeComponent) {
-            if (c.getName().equals(nom)) {
-                description = c.getDescription();
-                effect = c.getEffects();
-            }
-        }
 
         cDescription = (EditText) findViewById(R.id.component_description);
         cDescription.setText(description);

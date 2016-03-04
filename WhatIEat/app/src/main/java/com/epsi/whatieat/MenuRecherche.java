@@ -26,14 +26,19 @@ public class MenuRecherche extends AppCompatActivity {
     Button sendAndResearch;
     Button buttonMenu;
     List<Food> listFood;
+    EditText myFoodProduct1Field;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_recherche);
 
+        myFoodProduct1Field = (EditText)findViewById(R.id.editTextFood);
+        sendAndResearch = (Button)findViewById(R.id.food_button_recherche);
+
         myFoodField = (EditText)findViewById(R.id.editTextFood);
         sendAndResearch = (Button)findViewById(R.id.food_button_recherche);
+
 
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
