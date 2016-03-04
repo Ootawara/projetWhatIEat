@@ -57,8 +57,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-/*
-        sendAndResearch = (Button) findViewById(R.id.buttonComponentSearch);
+
         sendAndResearch.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -81,7 +80,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
                     }
                 });
             }
-        });*/
+        });
     }
 
     public void constructList(){
