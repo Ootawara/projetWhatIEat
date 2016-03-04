@@ -57,6 +57,26 @@ public class MenuRechercheChimique extends AppCompatActivity {
         });
     }
 
+    public void constructList(){
+        nomsComponent = new ArrayList<String>();
+        for(Component c : listeComponent){
+            nomsComponent.add(c.getName());
+        }
+        listeResultats = (ListView) findViewById(R.id.listeResultatChimique);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, nomsComponent);
+        listeResultats.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuRechercheChimique.this, AfficherComponent.class);
+                Button b = (Button) v;
+                String nom = (String) b.getText();
+                intent.putExtra("nomComponent", nom);
+                startActivity(intent);
+            }
+        });
+    }
+
     public void get_all_chemicals(){
 
         APIClient apiClient = new APIClient(this);
@@ -67,23 +87,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
             public void onResponse(Response<List<Component>> response, Retrofit retrofit) {
                 Log.w("HTTP_GET_ALL_COMPONENTS", "test : " + response.body().get(0).getName());
                 listeComponent = response.body();
-                nomsComponent = new ArrayList<String>();
-                for(Component c : listeComponent){
-                    nomsComponent.add(c.getName());
-                }
-                listeResultats = (ListView) findViewById(R.id.listeResultatChimique);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, nomsComponent);
-                listeResultats.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MenuRechercheChimique.this, AfficherComponent.class);
-                        Button b = (Button) v;
-                        String nom = (String) b.getText();
-                        intent.putExtra("nomComponent", nom);
-                        startActivity(intent);
-                    }
-                });
+                constructList();
             }
 
             @Override
