@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +13,15 @@ import android.widget.TextView;
 
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Component;
+import com.epsi.whatieat.Model.Food;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class AfficherComponent extends AppCompatActivity {
 
@@ -36,8 +44,34 @@ public class AfficherComponent extends AppCompatActivity {
         nom = b.getString("nomComponent");
 
         APIClient api = new APIClient(this);
-        Component c = (Component) api.getComponent(nom);
 
+        Call<List<Component>> getCall = api.getComponent(nom);
+        getCall.enqueue(new Callback<List<Component>>() {
+            @Override
+            public void onResponse(Response<List<Component>> response, Retrofit retrofit) {
+                constructView(response.body().get(0));
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.w("HTTP", "Fail" + t.toString());
+            }
+        });
+
+        // Go to menu principal
+        buttonMenu = (Button) findViewById(R.id.component_menu);
+
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AfficherComponent.this, MenuAccueil.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void constructView(Component c){
         description = c.getDescription();
         effect = c.getEffects();
 
@@ -88,18 +122,6 @@ public class AfficherComponent extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-            }
-        });
-
-        // Go to menu principal
-        buttonMenu = (Button) findViewById(R.id.component_menu);
-
-        buttonMenu.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AfficherComponent.this, MenuAccueil.class);
-                startActivity(intent);
             }
         });
     }
