@@ -32,6 +32,10 @@
         </activity>
         <activity android:name=".MenuRechercheResultatsChimiques" >
         </activity>
+        <activity android:name=".AfficherFood" >
+        </activity>
+        <activity android:name=".AfficherComponent" >
+        </activity>
     </application>
 
 </manifest>
