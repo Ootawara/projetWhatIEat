@@ -15,6 +15,9 @@ public class FoodWS {
     @Expose
     private String description;
 
+    @SerializedName("id")
+    @Expose
+    private String id;
     /**
      *
      * @return
@@ -51,5 +54,18 @@ public class FoodWS {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    /**
+     *
+     * (Required)
+     *
+     * @param id
+     * The id
+     */
+    public void setId(String id) {this.id = id;}
+    /**
+     *
+     * @return
+     * The id
+     */
+    public String getId() {return id;}
 }

@@ -33,10 +33,11 @@ public class APIClient {
         apiEndPoint = r.create(APIEndPoint.class);
     }
 
-    public Call<Void> createFood(String name, String description){
+    public Call<Void> createFood(String name, String description, String id){
         FoodWS f = new FoodWS();
         f.setName(name);
         f.setDescription(description);
+        f.setId(id);
 
         return apiEndPoint.createFood(f);
     }
@@ -47,10 +48,11 @@ public class APIClient {
         return apiEndPoint.getFood(name);
     }
 
-    public Call<Void> createComponent(String name, String description){
+    public Call<Void> createComponent(String name, String description, String id){
         ComponentWS f = new ComponentWS();
         f.setName(name);
         f.setDescription(description);
+        f.setId(id);
 
         return apiEndPoint.createComponent(f);
     }
