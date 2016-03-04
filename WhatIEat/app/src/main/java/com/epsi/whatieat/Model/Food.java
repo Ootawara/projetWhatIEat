@@ -5,7 +5,7 @@ package com.epsi.whatieat.Model;
  */
 public class Food {
 
-    String name, description;
+    String name, description, id;
     public Food(){
 
     }
@@ -25,4 +25,8 @@ public class Food {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getId() {return id;}
+
+    public void setId(String id) {this.id = id;}
 }
