@@ -39,6 +39,15 @@ public class CreerChimique extends AppCompatActivity {
         effects = (EditText)findViewById(R.id.chimique_effets);
         send = (Button)findViewById(R.id.chimique_send);
 
+
+        send.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                CreerChimique.this.save_chimique();
+            }
+        });
+
         // Go to menu principal
         buttonMenu = (Button)findViewById(R.id.chimique_menu);
         buttonMenu.setOnClickListener(new View.OnClickListener() {
