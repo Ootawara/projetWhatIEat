@@ -27,6 +27,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
     EditText myChemicalProduct1Field;
     Button sendAndResearch;
     Button buttonMenu;
+    ArrayList<String> nomsComponent;
 
     ListView listeResultats;
     List<Component> listeComponent;
@@ -41,24 +42,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
         myChemicalProduct1Field = (EditText)findViewById(R.id.editTextProd1);
         sendAndResearch = (Button)findViewById(R.id.buttonRechercheChimique);
 
-        ArrayList<String> nomsComponent = new ArrayList<String>();
-        for(Component c : listeComponent){
-            nomsComponent.add(c.getName());
-        }
 
-        listeResultats = (ListView) findViewById(R.id.listeResultatChimique);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, nomsComponent);
-        listeResultats.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuRechercheChimique.this, AfficherComponent.class);
-                Button b = (Button) v;
-                String nom = (String) b.getText();
-                intent.putExtra("nomComponent", nom);
-                startActivity(intent);
-            }
-        });
 
         // Go to menu principal
         buttonMenu = (Button)findViewById(R.id.chimique_search_menu);
@@ -83,6 +67,23 @@ public class MenuRechercheChimique extends AppCompatActivity {
             public void onResponse(Response<List<Component>> response, Retrofit retrofit) {
                 Log.w("HTTP_GET_ALL_COMPONENTS", "test : " + response.body().get(0).getName());
                 listeComponent = response.body();
+                nomsComponent = new ArrayList<String>();
+                for(Component c : listeComponent){
+                    nomsComponent.add(c.getName());
+                }
+                listeResultats = (ListView) findViewById(R.id.listeResultatChimique);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, nomsComponent);
+                listeResultats.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MenuRechercheChimique.this, AfficherComponent.class);
+                        Button b = (Button) v;
+                        String nom = (String) b.getText();
+                        intent.putExtra("nomComponent", nom);
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
