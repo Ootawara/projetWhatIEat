@@ -47,7 +47,7 @@ public class AfficherFood extends AppCompatActivity {
         cNom.setFocusable(false);
         cNom.setClickable(false);
 
-        cDescription = (EditText) findViewById(R.id.food_description);
+        cDescription = (EditText) findViewById( R.id.food_description);
         cDescription.setText(description);
         cDescription.setFocusable(false);
         cDescription.setClickable(false);

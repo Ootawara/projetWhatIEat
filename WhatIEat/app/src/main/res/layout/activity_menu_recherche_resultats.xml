@@ -15,7 +15,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Résultats de la Recherche"
         android:id="@+id/textViewResult"
-        android:layout_below="@+id/chimique_result_previous"
+        android:layout_below="@+id/food_result_previous"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp" />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Précédant"
-        android:id="@+id/chimique_result_previous"
+        android:id="@+id/food_result_previous"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 

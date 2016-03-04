@@ -16,13 +16,13 @@
         android:text="Menu de Recherche Food"
         android:id="@+id/textViewMenuRecherche"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/chimique_result_previous"
+        android:layout_below="@+id/food_result_previous"
         android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/elemToSearch"
+        android:id="@+id/editTextFood"
         android:layout_marginTop="85dp"
         android:text="Entrer un aliment"
         android:layout_below="@+id/textViewMenuRecherche"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lancer la recherche"
-        android:id="@+id/buttonRechercheFood"
+        android:id="@+id/food_button_recherche"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="31dp" />
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Précédent"
-        android:id="@+id/chimique_result_previous"
+        android:id="@+id/food_result_previous"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:text="Menu"
         android:id="@+id/food_search_menu"
-        android:layout_alignTop="@+id/chimique_result_previous"
+        android:layout_alignTop="@+id/food_result_previous"
         android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -20,6 +20,10 @@ public class ComponentWS {
     @Expose
     private String effects;
 
+    @SerializedName("id")
+    @Expose
+    private String id;
+
     /**
      *
      * @return
@@ -29,9 +33,6 @@ public class ComponentWS {
         return name;
     }
 
-    public String getEffects() {
-        return effects;
-    }
     /**
      *
      * (Required)
@@ -42,6 +43,7 @@ public class ComponentWS {
     public void setName(String name) {
         this.name = name;
     }
+
     /**
      *
      * @return
@@ -60,7 +62,36 @@ public class ComponentWS {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    /**
+     *
+     * (Required)
+     *
+     * @param effects
+     * The effects
+     */
     public void setEffects(String effects) { this.effects = effects; }
+    /**
+     *
+     * @return
+     * The effects
+     */
+    public String getEffects() {
+        return effects;
+    }
+
+    /**
+     *
+     * (Required)
+     *
+     * @param id
+     * The id
+     */
+    public void setId(String id) {this.id = id;}
+    /**
+     *
+     * @return
+     * The id
+     */
+    public String getId() {return id;}
 
 }

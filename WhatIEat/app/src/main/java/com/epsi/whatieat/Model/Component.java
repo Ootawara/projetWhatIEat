@@ -5,7 +5,7 @@ package com.epsi.whatieat.Model;
  */
 public class Component {
 
-    String name, description, effects;
+    String name, description, effects, id;
     public Component(){
 
     }
@@ -29,4 +29,8 @@ public class Component {
     public String getEffects() { return effects; }
 
     public void setEffects(String effects) { this.effects = effects; }
+
+    public String getId() {return id;}
+
+    public void setId(String id) {this.id = id;}
 }

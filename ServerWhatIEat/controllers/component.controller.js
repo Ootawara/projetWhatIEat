@@ -25,8 +25,8 @@ function insert(component, callback){
 	});
 };
 
-function update(name, component, callback){
-	Component.findOneAndUpdate({name : name}, component, function(err, component) {
+function update(id, component, callback){
+	Component.findOneAndUpdate({_id : name}, id, function(err, component) {
 		if(err){
 			callback(err, "Update ailed")
 		}else{
@@ -47,25 +47,34 @@ module.exports.getComponent = function(req, res){
 };
 
 module.exports.insertComponent = function(req, res){
-	find(req.body.name, function(err, result){
-		if(result){
-			update(req.body.name, req.body, function(err, result){
+	if(req.body.id){
+		update(req.body.id, req.body, function(err, result){
+			if(err){
+				res.json(err);
+			}else{
+				res.json(result);
+			}
+		});
+
+	}else{
+		find(req.body.name, function(err, result){
+			if(result){
 				if(err){
 					res.json(err);
 				}else{
 					res.json(result);
 				}
-			});
-		}else{
-			insert(req.body, function(err, result){
-				if(err){
-					res.json(err);
-				}else{
-					res.json(result);
-				}
-			});
-		}
-	});
+			}else{
+				insert(req.body, function(err, result){
+					if(err){
+						res.json(err);
+					}else{
+						res.json(result);
+					}
+				});
+			}
+		});
+	}
 };
 
 module.exports.addFoods = function(req, res){
