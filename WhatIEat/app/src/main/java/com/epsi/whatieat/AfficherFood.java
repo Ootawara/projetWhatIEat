@@ -70,24 +70,24 @@ public class AfficherFood extends AppCompatActivity {
 
         cNom = (EditText) findViewById(R.id.food_name);
         cNom.setText(nom);
-        cNom.setFocusable(false);
-        cNom.setClickable(false);
+        //cNom.setFocusable(false);
+        cNom.setEnabled(false);
 
         cDescription = (EditText) findViewById( R.id.food_description);
         cDescription.setText(description);
-        cDescription.setFocusable(false);
-        cDescription.setClickable(false);
+        //cDescription.setFocusable(false);
+        cDescription.setEnabled(false);
 
         modifierFood = (Button) findViewById(R.id.food_send);
         modifierFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 modifierFood.setText("ENREGISTRER");
-                cNom.setFocusable(true);
-                cNom.setClickable(true);
+                //cNom.setFocusable(true);
+                cNom.setEnabled(true);
                 cNom.setText(nom, TextView.BufferType.EDITABLE);
-                cDescription.setFocusable(true);
-                cDescription.setClickable(true);
+                //cDescription.setFocusable(true);
+                cDescription.setEnabled(true);
                 cDescription.setText(description, TextView.BufferType.EDITABLE);
 
                 modifierFood.setOnClickListener(new View.OnClickListener() {
@@ -96,10 +96,10 @@ public class AfficherFood extends AppCompatActivity {
                         AfficherFood.this.save_food();
 
                         modifierFood.setText("MODIFIER");
-                        cNom.setFocusable(false);
-                        cNom.setClickable(false);
-                        cDescription.setFocusable(false);
-                        cDescription.setClickable(false);
+                        //cNom.setFocusable(false);
+                        cNom.setEnabled(false);
+                        //cDescription.setFocusable(false);
+                        cDescription.setEnabled(false);
 
                         Intent intent = new Intent(AfficherFood.this, MenuAccueil.class);
                         startActivity(intent);
