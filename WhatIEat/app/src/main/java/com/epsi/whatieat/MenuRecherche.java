@@ -22,7 +22,7 @@ import retrofit.Retrofit;
 
 public class MenuRecherche extends AppCompatActivity {
 
-    EditText myFoodProduct1Field;
+    EditText myFoodField;
     Button sendAndResearch;
     Button buttonMenu;
     Call<List<Food>> getCall;
@@ -32,8 +32,8 @@ public class MenuRecherche extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_recherche);
 
-        myFoodProduct1Field = (EditText)findViewById(R.id.editTextProd1);
-        sendAndResearch = (Button)findViewById(R.id.buttonRecherche);
+        myFoodField = (EditText)findViewById(R.id.editTextFood);
+        sendAndResearch = (Button)findViewById(R.id.food_button_recherche);
 
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
