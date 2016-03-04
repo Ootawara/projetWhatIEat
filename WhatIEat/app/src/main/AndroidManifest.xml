@@ -24,13 +24,9 @@
         </activity>
         <activity android:name=".forms.Creer_food" >
         </activity>
-        <activity android:name=".MenuRechercheResultats" >
-        </activity>
         <activity android:name=".forms.CreerChimique" >
         </activity>
         <activity android:name=".MenuRechercheChimique" >
-        </activity>
-        <activity android:name=".MenuRechercheResultatsChimiques" >
         </activity>
         <activity android:name=".AfficherFood" >
         </activity>

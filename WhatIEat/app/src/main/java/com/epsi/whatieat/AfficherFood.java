@@ -38,7 +38,34 @@ public class AfficherFood extends AppCompatActivity {
 
         APIClient api = new APIClient(this);
 
-        Food f = (Food) api.getFood(nom);
+        Call<List<Food>> getCall = api.getFood(nom);
+        getCall.enqueue(new Callback<List<Food>>() {
+            @Override
+            public void onResponse(Response<List<Food>> response, Retrofit retrofit) {
+                constructView(response.body().get(0));
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.w("HTTP", "Fail" + t.toString());
+            }
+        });
+
+
+        // Go to menu principal
+        buttonMenu = (Button)findViewById(R.id.food_menu);
+
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AfficherFood.this, MenuAccueil.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void constructView(Food f){
         description = f.getDescription();
 
         cNom = (EditText) findViewById(R.id.food_name);
@@ -78,18 +105,6 @@ public class AfficherFood extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-            }
-        });
-
-        // Go to menu principal
-        buttonMenu = (Button)findViewById(R.id.food_menu);
-
-        buttonMenu.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AfficherFood.this, MenuAccueil.class);
-                startActivity(intent);
             }
         });
     }
