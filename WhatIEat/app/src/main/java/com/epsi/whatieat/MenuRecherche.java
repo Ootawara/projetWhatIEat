@@ -58,7 +58,7 @@ public class MenuRecherche extends AppCompatActivity {
         });
 
         sendAndResearch = (Button) findViewById(R.id.food_button_recherche);
-        sendAndResearch.setOnClickListener(new View.OnClickListener(){
+        /*sendAndResearch.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -80,7 +80,7 @@ public class MenuRecherche extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });*/
     }
 
     public void constructList(){

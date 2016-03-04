@@ -58,7 +58,6 @@ public class MenuRechercheChimique extends AppCompatActivity {
             }
         });
 
-        sendAndResearch = (Button) findViewById(R.id.buttonComponentSearch);
         sendAndResearch.setOnClickListener(new View.OnClickListener(){
 
             @Override
