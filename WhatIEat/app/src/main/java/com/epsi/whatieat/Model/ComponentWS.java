@@ -28,10 +28,15 @@ public class ComponentWS {
     public String getName() {
         return name;
     }
-
+    /**
+     *
+     * @return
+     * The Effects
+     */
     public String getEffects() {
         return effects;
     }
+
     /**
      *
      * (Required)
@@ -42,6 +47,7 @@ public class ComponentWS {
     public void setName(String name) {
         this.name = name;
     }
+
     /**
      *
      * @return
