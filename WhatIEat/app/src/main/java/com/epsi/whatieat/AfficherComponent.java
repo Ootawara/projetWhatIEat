@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Component;
@@ -77,51 +78,66 @@ public class AfficherComponent extends AppCompatActivity {
 
         cNom = (EditText) findViewById(R.id.component_name);
         cNom.setText(nom);
-        cNom.setFocusable(false);
-        cNom.setClickable(false);
+        cNom.setEnabled(false);
 
         cDescription = (EditText) findViewById(R.id.component_description);
         cDescription.setText(description);
-        cDescription.setFocusable(false);
-        cDescription.setClickable(false);
+        cDescription.setEnabled(false);
 
         cEffects = (EditText) findViewById(R.id.component_effects);
         cEffects.setText(effect);
-        cEffects.setFocusable(false);
-        cEffects.setClickable(false);
+        cEffects.setEnabled(false);
 
-        modifierComponent = (Button) findViewById(R.id.food_send);
+        modifierComponent = (Button) findViewById(R.id.component_send);
         modifierComponent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 modifierComponent.setText("ENREGISTRER");
-                cNom.setFocusable(true);
-                cNom.setClickable(true);
+                cNom.setEnabled(true);
                 cNom.setText(nom, TextView.BufferType.EDITABLE);
-                cDescription.setFocusable(true);
-                cDescription.setClickable(true);
+                cDescription.setEnabled(true);
                 cDescription.setText(description, TextView.BufferType.EDITABLE);
-                cEffects.setFocusable(true);
-                cEffects.setClickable(true);
+                cEffects.setEnabled(true);
                 cDescription.setText(description, TextView.BufferType.EDITABLE);
 
                 modifierComponent.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // AfficherComponent.this.save_component();
+                        AfficherComponent.this.save_component();
 
                         modifierComponent.setText("MODIFIER");
-                        cNom.setFocusable(false);
-                        cNom.setClickable(false);
-                        cDescription.setFocusable(false);
-                        cDescription.setClickable(false);
-                        cEffects.setFocusable(false);
-                        cEffects.setClickable(false);
+                        cNom.setEnabled(false);
+                        cDescription.setEnabled(false);
+                        cEffects.setEnabled(false);
 
                         Intent intent = new Intent(AfficherComponent.this, MenuAccueil.class);
                         startActivity(intent);
                     }
                 });
+            }
+        });
+    }
+
+    public void save_component(){
+
+        String name = this.cNom.getText().toString();
+        String description = this.cDescription.getText().toString();
+        String effects = this.cEffects.getText().toString();
+        String id = "";
+
+        APIClient apiClient = new APIClient(this);
+
+        Call<Void> call = apiClient.createComponent(name, description, effects);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Response<Void> response, Retrofit retrofit) {
+                //Log.w("HTTP", response.toString());
+                Toast.makeText(AfficherComponent.this, response.toString(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.w("HTTP", "Fail" + t.toString());
             }
         });
     }

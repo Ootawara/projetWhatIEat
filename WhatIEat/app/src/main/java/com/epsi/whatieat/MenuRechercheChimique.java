@@ -44,7 +44,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
         myChemicalProduct1Field = (EditText)findViewById(R.id.editTextProd1);
         sendAndResearch = (Button)findViewById(R.id.buttonRechercheChimique);
 
-
+        listeResultats = (ListView) findViewById(R.id.listeResultatChimique);
 
         // Go to menu principal
         buttonMenu = (Button)findViewById(R.id.chimique_search_menu);
@@ -57,7 +57,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+/*
         sendAndResearch = (Button) findViewById(R.id.buttonComponentSearch);
         sendAndResearch.setOnClickListener(new View.OnClickListener(){
 
@@ -81,7 +81,7 @@ public class MenuRechercheChimique extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });*/
     }
 
     public void constructList(){
@@ -89,14 +89,14 @@ public class MenuRechercheChimique extends AppCompatActivity {
         for(Component c : listeComponent){
             nomsComponent.add(c.getName());
         }
-        listeResultats = (ListView) findViewById(R.id.listeResultatChimique);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, nomsComponent);
-        listeResultats.setOnClickListener(new View.OnClickListener() {
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MenuRechercheChimique.this, android.R.layout.simple_list_item_1, nomsComponent);
+        listeResultats.setAdapter(adapter);
+        listeResultats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MenuRechercheChimique.this, AfficherComponent.class);
-                Button b = (Button) v;
+                AppCompatTextView b = (AppCompatTextView) view;
                 String nom = (String) b.getText();
                 intent.putExtra("nomComponent", nom);
                 startActivity(intent);
