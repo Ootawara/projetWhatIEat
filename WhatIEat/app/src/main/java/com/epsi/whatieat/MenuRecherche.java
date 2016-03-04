@@ -12,8 +12,6 @@ import android.widget.EditText;
 import com.epsi.whatieat.API.APIClient;
 import com.epsi.whatieat.Model.Food;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Call;
@@ -28,7 +26,6 @@ public class MenuRecherche extends AppCompatActivity {
     Button sendAndResearch;
     Button buttonMenu;
     List<Food> listFood;
-    EditText myFoodProduct1Field;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +39,7 @@ public class MenuRecherche extends AppCompatActivity {
             public void onClick(View v) {
                 MenuRecherche.this.get_all_foods();
                 Intent intent = new Intent(MenuRecherche.this, MenuRechercheResultats.class);
-                intent.putExtra("listeFood", (ArrayList<Food>) listFood);
+                intent.putExtra("listeFood", (Parcelable) listFood);
                 startActivity(intent);
             }
         });
