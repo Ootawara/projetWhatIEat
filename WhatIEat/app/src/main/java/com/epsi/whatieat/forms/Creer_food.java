@@ -60,6 +60,7 @@ public class Creer_food extends AppCompatActivity {
 
         String name = this.name.getText().toString();
         String description = this.description.getText().toString();
+        String id = "";
 
         APIClient apiClient = new APIClient(this);
         //Test GET
@@ -94,7 +95,7 @@ public class Creer_food extends AppCompatActivity {
             }
         });*/
 
-        Call<Void> call = apiClient.createFood(name, description);
+        Call<Void> call = apiClient.createFood(name, description, id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Response<Void> response, Retrofit retrofit) {
