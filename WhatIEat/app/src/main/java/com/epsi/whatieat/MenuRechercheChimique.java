@@ -36,6 +36,8 @@ public class MenuRechercheChimique extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_recherche_chimique);
 
+        MenuRechercheChimique.this.get_all_chemicals();
+
         myChemicalProduct1Field = (EditText)findViewById(R.id.editTextProd1);
         sendAndResearch = (Button)findViewById(R.id.buttonRechercheChimique);
 
