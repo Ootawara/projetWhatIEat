@@ -13,8 +13,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="COMPOSANT"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/component_previous"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -44,6 +45,24 @@
         android:id="@+id/component_send"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Précédent"
+        android:id="@+id/component_previous"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        android:id="@+id/component_menu"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/component_name" />
 
 
 </RelativeLayout>

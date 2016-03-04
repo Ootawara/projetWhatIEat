@@ -29,6 +29,7 @@ public class AfficherFood extends AppCompatActivity {
     Button modifierFood;
     EditText cNom;
     EditText cDescription;
+    Button buttonMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +67,7 @@ public class AfficherFood extends AppCompatActivity {
 
                 modifierFood.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v){
+                    public void onClick(View v) {
                         AfficherFood.this.save_food();
 
                         modifierFood.setText("MODIFIER");
@@ -79,6 +80,18 @@ public class AfficherFood extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+            }
+        });
+
+        // Go to menu principal
+        buttonMenu = (Button)findViewById(R.id.food_menu);
+
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AfficherFood.this, MenuAccueil.class);
+                startActivity(intent);
             }
         });
     }

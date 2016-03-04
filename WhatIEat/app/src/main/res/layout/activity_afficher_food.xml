@@ -13,26 +13,26 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Aliment"
         android:id="@+id/textViewResult"
-        android:layout_below="@+id/buttonPrevious"
+        android:layout_below="@+id/food_previous"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp" />
+        android:layout_marginTop="36dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/food_name"
-        android:layout_marginTop="56dp"
         android:text="Nom"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/food_description"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="27dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/food_description"
         android:text="Qu'est ce que c'est ?"
-        android:layout_below="@+id/food_name"
-        android:layout_alignStart="@+id/food_name" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,5 +40,23 @@
         android:id="@+id/food_send"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Précédent"
+        android:id="@+id/food_previous"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        android:id="@+id/food_menu"
+        android:layout_alignTop="@+id/food_previous"
+        android:layout_alignEnd="@+id/food_name" />
 
 </RelativeLayout>
