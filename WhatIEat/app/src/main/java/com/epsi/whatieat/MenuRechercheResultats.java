@@ -39,7 +39,6 @@ public class MenuRechercheResultats extends AppCompatActivity {
                 Button b = (Button) v;
                 String nom = (String) b.getText();
                 intent.putExtra("nomFood", nom);
-                intent.putExtra("listeFood", listeFood);
                 startActivity(intent);
             }
         });

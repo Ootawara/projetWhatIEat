@@ -25,7 +25,6 @@ public class AfficherFood extends AppCompatActivity {
 
     String nom;
     String description;
-    ArrayList<Food> listeFood;
     Button modifierFood;
     EditText cNom;
     EditText cDescription;
@@ -37,16 +36,16 @@ public class AfficherFood extends AppCompatActivity {
         setContentView(R.layout.activity_afficher_food);
         Bundle b = getIntent().getExtras();
         nom = b.getString("nomFood");
-        listeFood = b.getParcelable("listeFood");
+
+        APIClient api = new APIClient(this);
+
+        Food f = (Food) api.getFood(nom);
+        description = f.getDescription();
 
         cNom = (EditText) findViewById(R.id.food_name);
         cNom.setText(nom);
         cNom.setFocusable(false);
         cNom.setClickable(false);
-
-        for(Food f : listeFood){
-            if(f.getName().equals(nom)) description = f.getDescription();
-        }
 
         cDescription = (EditText) findViewById(R.id.food_description);
         cDescription.setText(description);

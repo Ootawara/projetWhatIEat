@@ -32,8 +32,8 @@ public class MenuRecherche extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_recherche);
 
-        myFoodProduct1Field = (EditText)findViewById(R.id.editTextProd1);
-        sendAndResearch = (Button)findViewById(R.id.buttonRecherche);
+        myFoodProduct1Field = (EditText)findViewById(R.id.elemToSearch);
+        sendAndResearch = (Button)findViewById(R.id.buttonRechercheFood);
 
         sendAndResearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
