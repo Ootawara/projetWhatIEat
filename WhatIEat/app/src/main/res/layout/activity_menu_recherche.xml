@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextFood"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="31dp"
         android:text="Entrer un aliment"
         android:layout_below="@+id/textViewMenuRecherche"
         android:layout_alignParentStart="true" />
@@ -33,9 +33,9 @@
         android:layout_height="wrap_content"
         android:text="Lancer la recherche"
         android:id="@+id/food_button_recherche"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp" />
+        android:layout_marginTop="51dp"
+        android:layout_alignTop="@+id/editTextFood"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -54,5 +54,14 @@
         android:id="@+id/food_search_menu"
         android:layout_alignTop="@+id/food_result_previous"
         android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/listeResultat"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/food_button_recherche"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 </RelativeLayout>

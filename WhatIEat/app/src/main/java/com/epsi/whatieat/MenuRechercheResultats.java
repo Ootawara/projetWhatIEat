@@ -46,7 +46,6 @@ public class MenuRechercheResultats extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         // Go to menu principal
         buttonMenu = (Button)findViewById(R.id.food_result_menu);
 
